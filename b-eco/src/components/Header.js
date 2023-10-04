@@ -11,7 +11,7 @@ function Header() {
           <ul className="menu-container">
               <li className='menu-link'><a href="#inicio">Inicio</a></li>
               <li className='menu-link'><a href="#QS">¿Quiénes Somos?</a></li>
-              <li className='menu-link'><a href="">Proyectos</a></li>
+              <li className='menu-link'><a href="#Proyectos">Proyectos</a></li>
               <li className='menu-link'><a href="#Siguenos">Siguenos</a></li>
               <li className='menu-link'><a href="#Alianzas">Alianzas</a></li>
           </ul>
