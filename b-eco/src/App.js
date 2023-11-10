@@ -29,7 +29,7 @@ function App() {
               <h3 className="contact-email">@grupoestudiantil_b.eco</h3>
           </section>
         </section>
-        <section className="content-section">
+        <section className="content-section" id="Snakegame">
           <section>
               <h2>SNAKE GAME</h2>
               <p>Ayudanos a recolectar desechos!</p>

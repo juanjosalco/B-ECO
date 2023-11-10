@@ -14,6 +14,7 @@ function Header() {
               <li className='menu-link'><a href="#Proyectos">Proyectos</a></li>
               <li className='menu-link'><a href="#Siguenos">Siguenos</a></li>
               <li className='menu-link'><a href="#Alianzas">Alianzas</a></li>
+              <li className='menu-link'><a href="#Snakegame">SnakeGame</a></li>
           </ul>
       </section>
     </header>
