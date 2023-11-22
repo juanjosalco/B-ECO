@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+  }
+  
+  td {
+    width: 5rem;
+    height: 4rem;
+    border: .01rem solid rgb(9, 43, 9);
+  }
+  
+  .snake-cell {
+    background-color: green;
+  }
+  
+  .food-cell {
+    /* background-color: red; */
+    /* background-image:  url("../Assets/Logo.png") */
+    background-image: url('../Assets/TrashPics/Bag.png'); /* Replace with the actual path to your food image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; /* This property centers the background image within the cell */
+}
+  
+  body {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/000/607/519/large_2x/aerial-view-of-park-vector.jpg'); /* Replace with the actual path to your image file */
+    background-size: cover; /* This property ensures that the background image covers the entire element */
+    background-repeat: no-repeat; /* This property ensures that the background image is not repeated */
+  }

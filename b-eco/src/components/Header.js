@@ -13,8 +13,7 @@ function Header() {
               <li className='menu-link'><a href="#QS">¿Quiénes Somos?</a></li>
               <li className='menu-link'><a href="#Proyectos">Proyectos</a></li>
               <li className='menu-link'><a href="#Siguenos">Siguenos</a></li>
-              <li className='menu-link'><a href="#Alianzas">Alianzas</a></li>
-              <li className='menu-link'><a href="#Snakegame">SnakeGame</a></li>
+              <li className='menu-link'><a href="#EcoSerpiente">EcoSerpiente</a></li>
           </ul>
       </section>
     </header>
