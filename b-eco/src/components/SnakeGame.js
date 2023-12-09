@@ -35,43 +35,73 @@ const SnakeGame = () => {
   const [snake, setSnake] = useState(initialSnake);
   const [food, setFood] = useState(getRandomCell());
   const [direction, setDirection] = useState('RIGHT');
+  const [headImage, setHeadImage] = useState('default-head-image'); // Add state to track the head image
 
   const [gameOver, setGameOver] = useState(false);
   const [gameStarted, setGameStarted] = useState(false); // 
   const [score, setScore] = useState(0);
   const [highestScore, setHighestScore] = useState(0);
 
-
   function play() {
+    // Add an event listener to the window to capture arrow key presses
+      window.addEventListener('keydown', function (e) {
+        // Check if the pressed key is an arrow key
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+          // Prevent the default behavior of arrow keys (scrolling)
+          e.preventDefault();
+        }
+      });
     setGameStarted(true); // Set game as started when "Play" button is clicked
+    const preventScroll = (e) => {
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+        e.preventDefault();
+      }
+    };
+  
+    if(!gameOver){
+      window.addEventListener('keydown', preventScroll);
+    }
+    else {
+      window.removeEventListener('keydown',preventScroll);
+    }    
   }
 
   const handleKeyPress = (e) => {
-    switch (e.key) {
+    let newDirection = direction;
+    let newHeadImage = headImage; // Variable to track the head image
+
+switch (e.key) {
       case 'ArrowUp':
-        setDirection('UP');
+        newDirection = 'UP';
+        newHeadImage = 'up-head-image'; // Set head image for 'UP'
         break;
       case 'ArrowDown':
-        setDirection('DOWN');
+        newDirection = 'DOWN';
+        newHeadImage = 'down-head-image'; // Set head image for 'DOWN'
         break;
       case 'ArrowLeft':
-        setDirection('LEFT');
+        newDirection = 'LEFT';
+        newHeadImage = 'left-head-image'; // Set head image for 'LEFT'
         break;
       case 'ArrowRight':
-        setDirection('RIGHT');
+        newDirection = 'RIGHT';
+        newHeadImage = 'right-head-image'; // Set head image for 'RIGHT'
         break;
       default:
         break;
     }
+    setDirection(newDirection);
+    setHeadImage(newHeadImage); // Update the head image state
   };
 
 
   useEffect(() => {
+
     const handleGameTick = () => {
       if (gameOver) return;
 
       const newSnake = [...snake];
-      const head = { ...newSnake[0] };
+      const head = { ...newSnake[0]};
 
       switch (direction) {
         case 'UP':
@@ -158,7 +188,6 @@ const SnakeGame = () => {
                     const isSnakeCell = snake.some(
                       (cell) => cell.row === rowIndex && cell.col === colIndex
                     );
-
                     return (
                       <td
                         key={`${rowIndex}-${colIndex}`}
@@ -171,7 +200,7 @@ const SnakeGame = () => {
                                     cell.row === rowIndex && cell.col === colIndex
                                 )
                               )
-                              ? 'snake-cell head'
+                              ? headImage
                               : 'snake-cell body'
                             : food.row === rowIndex && food.col === colIndex
                             ? foodImages[food.randomNumber]
@@ -189,6 +218,13 @@ const SnakeGame = () => {
     )}
 
       <div className="play-buttons">
+        {gameStarted && !gameOver &&( // Show "Play" button only if game hasn't started
+          <button className="intructions" onClick={() => { }}>
+            {`Move with:`}
+            <br/>
+            {`⇦ ⇧ ⇨ ⇩`}
+          </button>
+        )}
         {!gameStarted && ( // Show "Play" button only if game hasn't started
           <button className="custom-button" onClick={() => { play() }}>
             Click me to Play!
@@ -196,13 +232,13 @@ const SnakeGame = () => {
         )}
         {gameOver && ( // Show "Play" button only if game hasn't started
           <button className="custom-button" onClick={() => { restartGame() }}>
-            Let's play again!
+            GAME OVER, Let's play again!
           </button>
         )}
         <container className="score-button">
           Score: {score}
         </container>
-        <container className="score-button">
+        <container className="highestsScore-button">
           Highest Score: {highestScore}
         </container>
       </div>
