@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import SnakeGame from './components/SnakeGame';
 import Logo from './Assets/Logo.png'
 import Cards from './components/Cards'
+import { cardsContent } from './Utils/Cards';
 
 function App() {
   return (
@@ -26,8 +27,13 @@ function App() {
           <section>
               <h2>Sigue nuestras acciones</h2>
               <p>Inventore corporis quis saepe quaerat aliquam enim repudiandae adipisci velit nemo. Sint magnam autem repellendus quis deleniti quo accusamus commodi ut enim aspernatur quod et. Sed enim eos id nesciunt et alias consectetur ut eos ex nisi beatae quasi blanditiis. Dolorem iste est dolorem corrupti qui laborum. Odit quis aut autem modi sed perspiciatis qui dolore quidem in at. Velit dolor nihil nesciunt maiores vero magnam dolorem libero quia culpa. Iure ut minima at id eos doloremque totam quasi in aspernatur et illo enim qui pariatur.</p>
-              <Cards />
-              <h3 className="contact-email">@grupoestudiantil_b.eco</h3>
+              <section className="cards">
+                {cardsContent.map((card, index) => (
+                  <div key = {index}>
+                    <Cards image = {card.img} text={card.text} referencia={card.link}/>
+                  </div>
+                ))}
+              </section>
           </section>
         </section>
         <section className="content-section" id="EcoSerpiente">

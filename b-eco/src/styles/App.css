@@ -94,3 +94,8 @@
     font-size: 20px;
   }
 }
+
+.cards {
+  display: flex;
+  align-self: center;
+}

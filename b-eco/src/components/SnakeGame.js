@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Button } from 'react';
 import '../styles/SnakeGame.css'; // Import the CSS file
-import preGameImage from '../Assets/gameIntro.jpeg';
+import preGameImage from '../Assets/Snake/gameIntro.jpeg';
 
 const ROWS = 10;
 const COLS = 10;
